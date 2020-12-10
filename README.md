@@ -6,7 +6,7 @@ This also demonstrates how to use JWT for authentication
 
 ## How to deploy and run locally
 
-1. Please edit config/default.json to provide mongodb credentials
+1. Please edit `config/default.json` to provide mongodb credentials
 2. Start the server
 
     ```
@@ -57,4 +57,5 @@ This also demonstrates how to use JWT for authentication
  ### Todo 
 
  - [ ] Update function check
+ - [ ] Add instructions to install npm and mongodb
  - [ ] Test instructions in a different environment
