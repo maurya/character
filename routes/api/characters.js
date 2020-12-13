@@ -29,6 +29,29 @@ router.post('/', auth, (req, res)=> {
 newCharacter.save().then(character => res.json(character).catch(err => res.status(500).json({success: false, message: err})));
 });
 
+// @route PUT api/characters
+// @desc  updates a character
+// @access Public
+router.put('/', auth, (req, res)=> {
+    var _id = req.body._id;
+
+    Character.findOne({ _id : _id }, function(error, character) {
+        if (error || !character) {
+          res.status(404).json({success: false, message: "Character not found"});          
+        } else {
+           // update the character object found using findOne
+           character.name = req.body.name,
+           character.birth_date= req.body.birth_date,
+           character.gender =req.body.gender,
+           character.height = req.body.height,
+           character.weight = req.body.weight,
+           character.home_location = req.body.home_location
+           // now update it in MongoDB
+           Character.updateOne(character).then(character => res.json(character));
+        }
+    });
+});
+
 // @route DELETE api/characters
 // @desc  Delete a character
 // @access Public
