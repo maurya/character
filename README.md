@@ -7,9 +7,10 @@ This project is a web application based on Nodejs and MongoDB. This project uses
 1. Install [npm, node](https://www.npmjs.com/get-npm) and [mongodb](https://docs.mongodb.com/manual/installation/) for your environment and make sure `mongodb` is up and running
 2. Clone this repo into your file system
 3. Edit `config/default.json` to provide mongodb credentials
-4. Start the web application server from the root folder of this repo
+4. Install web application dependencies and start the nodejs server from the root folder of this repo
 
     ```
+    npm install
     npm start
     ```
     **Note:** by default the web application server starts on port `5000`
