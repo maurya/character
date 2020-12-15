@@ -1,10 +1,69 @@
 {
 	"info": {
-		"_postman_id": "7c7a37a8-fb58-4dd6-8d93-a107deda4da0",
+		"_postman_id": "cf380eb7-7132-40d0-a349-aeffbe52fb40",
 		"name": "Character API Requests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "Add User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"admin\",\n\t\"email\":  \"admin@gmail.com\",\n\t\"password\": \"Admin123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":  \"admin@gmail.com\",\n\t\"password\": \"Admin123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "Add Character",
 			"request": {
@@ -12,13 +71,13 @@
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZDFiY2Y2ZDhjNDAxZTZmZWY0NDI0MSIsImlhdCI6MTYwNzgwMDg3OSwiZXhwIjoxNjA3ODA0NDc5fQ.Br1eGy4q7NffIgva6Of8QjpvS91P_4u-0bnhB0mFqfc",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZDgwYTZiZDNmOGMyNzkxNDA4MzYxNCIsImlhdCI6MTYwNzk5Mzk2MywiZXhwIjoxNjA3OTk3NTYzfQ.mbpiabg7wcZgbNdNdkOzdQSv-nGYlczaxx1OFQLSCGE",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"_id\":\"5fd19041c3b954de6e2ddbe0\",\n    \"name\": \"Hero\",\n    \"birth_date\": \"10/02/2001\",\n    \"gender\": \"Male\",\n    \"height\": 200,\n    \"weight\": 210,\n    \"home_location\": \"Indianapolis\"\n    \n}",
+					"raw": "    {\n        \"name\": \"Harry Potter\",\n        \"birth_date\": \"07/31/1980\",\n        \"gender\": \"Male\",\n        \"height\": 170,\n        \"weight\": 80,\n        \"home_location\": \"Hogwarts\"    \n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -61,76 +120,19 @@
 			"response": []
 		},
 		{
-			"name": "Authenticate User",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"email\":  \"admin@gmail.com\",\n\t\"password\": \"Admin123\"\n}"
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/auth",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Specific Character",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/items/:id",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"items",
-						":id"
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": "5f3c44f0141fd8cc22b56dcgg"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Update Character",
 			"request": {
 				"method": "PUT",
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZDFiY2Y2ZDhjNDAxZTZmZWY0NDI0MSIsImlhdCI6MTYwNzgwMDg3OSwiZXhwIjoxNjA3ODA0NDc5fQ.Br1eGy4q7NffIgva6Of8QjpvS91P_4u-0bnhB0mFqfc",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZDgwYTZiZDNmOGMyNzkxNDA4MzYxNCIsImlhdCI6MTYwNzk5Mzk2MywiZXhwIjoxNjA3OTk3NTYzfQ.mbpiabg7wcZgbNdNdkOzdQSv-nGYlczaxx1OFQLSCGE",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"_id\":\"5fd19041c3b954de6e2ddbe0\",\n    \"name\": \"Hero\",\n    \"birth_date\": \"10/02/2001\",\n    \"gender\": \"Male\",\n    \"height\": 200,\n    \"weight\": 210,\n    \"home_location\": \"Indy\"\n    \n}",
+					"raw": "{\n    \"_id\":\"5fd80ac4d3f8c27914083615\",\n    \"name\": \"Generic Hero\",\n    \"birth_date\": \"10/02/2001\",\n    \"gender\": \"Male\",\n    \"height\": 200,\n    \"weight\": 210,\n    \"home_location\": \"Indiana\"\n    \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -153,21 +155,18 @@
 			"response": []
 		},
 		{
-			"name": "Add User",
+			"name": "Delete Specific Character",
 			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\": \"admin\",\n\t\"email\":  \"admin@gmail.com\",\n\t\"password\": \"Admin123\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZDgwYTZiZDNmOGMyNzkxNDA4MzYxNCIsImlhdCI6MTYwNzk5Mzk2MywiZXhwIjoxNjA3OTk3NTYzfQ.mbpiabg7wcZgbNdNdkOzdQSv-nGYlczaxx1OFQLSCGE",
+						"type": "text"
 					}
-				},
+				],
 				"url": {
-					"raw": "http://localhost:5000/api/users",
+					"raw": "http://localhost:5000/api/characters/:id",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -175,7 +174,14 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"users"
+						"characters",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5fd80ac4d3f8c27914083615"
+						}
 					]
 				}
 			},
@@ -186,7 +192,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "38f1a40c-e2c7-4131-b879-46d8fea9acd3",
+				"id": "1dc99d17-051c-4903-9b74-e54d20f989e8",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -196,7 +202,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "6019ca2d-5f1a-4899-adca-5410b1955f83",
+				"id": "052ab10c-255f-4c9b-b36b-9f70de4107a3",
 				"type": "text/javascript",
 				"exec": [
 					""
